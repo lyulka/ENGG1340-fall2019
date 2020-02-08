@@ -1,0 +1,73 @@
+./cellculture-linux-x64
+[Main] Please input a list of gene seeds:
+1 2 3 4 5 6 9 11 12
+[Monitor] Started [ 0 s ]
+[Monitor] Total Cells: 10 [ 1 s ]
+[Monitor] Total Cells: 8 [ 2 s ]
+[Monitor] Total Cells: 8 [ 3 s ]
+[Monitor] Total Cells: 6 [ 4 s ]
+[Monitor] Total Cells: 3 [ 5 s ]
+[Monitor] Total Cells: 2 [ 6 s ]
+[Monitor] Total Cells: 0 [ 7 s ]
+
+./cellculture-linux-x64
+[Main] Please input a list of gene seeds:
+1 2 3 4 5 6 7
+[Monitor] Started [ 0 s ]
+[Monitor] Total Cells: 7 [ 1 s ]
+[Monitor] Total Cells: 6 [ 2 s ]
+[Monitor] Total Cells: 5 [ 3 s ]
+[Monitor] Total Cells: 4 [ 4 s ]
+[Monitor] Total Cells: 3 [ 5 s ]
+[Monitor] Total Cells: 2 [ 6 s ]
+[Monitor] Total Cells: 1 [ 7 s ]
+[Monitor] Total Cells: 0 [ 8 s ]
+
+./cellculture-linux-x64
+[Main] Please input a list of gene seeds:
+1 2 3 4 5 6 7 8
+[Monitor] Started [ 0 s ]
+[Monitor] Total Cells: 7 [ 1 s ]
+[Monitor] Total Cells: 6 [ 2 s ]
+[Monitor] Total Cells: 5 [ 3 s ]
+[Monitor] Total Cells: 4 [ 4 s ]
+[Monitor] Total Cells: 3 [ 5 s ]
+[Monitor] Total Cells: 2 [ 6 s ]
+[Monitor] Total Cells: 1 [ 7 s ]
+[Monitor] Total Cells: 0 [ 8 s ]
+
+./cellculture-linux-x64
+[Main] Please input a list of gene seeds:
+1 9 17 25 33 65
+[Monitor] Started [ 0 s ]
+[Monitor] Total Cells: 24 [ 1 s ]
+[Monitor] Total Cells: 0 [ 2 s ]
+
+./cellculture-linux-x64
+[Main] Please input a list of gene seeds:
+2 10 18 26 34 66
+[Monitor] Started [ 0 s ]
+[Monitor] Total Cells: 6 [ 1 s ]
+[Monitor] Total Cells: 24 [ 2 s ]
+[Monitor] Total Cells: 18 [ 3 s ]
+[Monitor] Total Cells: 0 [ 4 s ]
+
+./cellculture-linux-x64
+[Main] Please input a list of gene seeds:
+65 66 67 68 69 70
+[Monitor] Started [ 0 s ]
+[Monitor] Total Cells: 14 [ 1 s ]
+[Monitor] Total Cells: 21 [ 2 s ]
+[Monitor] Total Cells: 36 [ 3 s ]
+[Monitor] Total Cells: 35 [ 4 s ]
+[Monitor] Total Cells: 26 [ 5 s ]
+[Monitor] Total Cells: 25 [ 6 s ]
+[Monitor] Total Cells: 16 [ 7 s ]
+[Monitor] Total Cells: 8 [ 8 s ]
+[Monitor] Total Cells: 8 [ 9 s ]
+[Monitor] Total Cells: 0 [ 10 s ]
+
+
+
+
+

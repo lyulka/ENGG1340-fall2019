@@ -1,0 +1,106 @@
+-------------
+About Task 1:
+
+I implemented a BST as a class with an aggregate relationship
+with another class, Node. In other words, a BST has contains a Node
+but not vice versa.
+
+A Node itself is merely a container with four member variables in total:
+id and val, attributes that characterise a single entry in the BST;
+leftChild and rightChild; pointers that captures the relationship between parent
+Nodes and their two children. In short, a BinarySearchTree is an abstraction
+wrapper for a linked list of Nodes, that is, (id, val) pairs.
+
+The methods are made as per instructions. Note that I wrote insert to use iteration, 
+search to use iteration also, but remove to use recursion (I found writing it using iteration to be clumsy
+and necessitating lots of function scope variables).
+
+I also took care of several fail conditions by reporting them to the user, these include the BST not being 
+initialised (i.e. its root Node hasn't been created), trying to insert two Nodes with the same id, and
+searching for elements with id that don't exist.
+
+- Running binary_search_tree.cpp in environment
+binary_search_tree is written without features specific to any contemporary C++ version.
+Bash commands:
+- g++ binary_search_tree.cpp -o binary_search_tree for compilation,
+- ./binary_search_tree for running.
+
+- How to use BinarySearchTree:
+1) Create a BST object: "BinarySearchTree tree;"
+2) The first Node you insert will be the root of the BST: "tree.insert(id, val);"
+3) Further insertions using tree.insert(id, val) will be child-nodes of the root.
+4) Use tree.remove(id) to delete entries in the BST while maintaining its sorted order.
+5) Use tree.search(id) to return the values in the (id, val) pairs stored in the tree.
+6) Use tree.print() or tree.print2D() to look into the internal structure of the BST,
+(print2D() breaks abstraction).
+
+- To improve abstraction and aid debugging, the class BinarySearchTree has 
+several member methods on top of its constructor and the three methods insert, search, and 
+remove. This includes:
+-BinarySearchTree.print, which prints elements in the BST by ascending order of ID,
+-BinarySearchTree.print2D, which prints elements in the BST in a 2D form to make clear parent-child
+relationships,
+-BinarySearchTree.get, which returns a pointer to the Node specified by its ID parameter,
+and aids in making BinarySearchTree.search more readable,
+-and an overloaded function named BinarySearchTree.remove, which I added to make the user interface
+more intuitive (the user is most likely going to search down from root anyway), while accomodating
+its recursive implementation (it  requires that we call remove from different points in the tree).
+
+------------
+About Task 2:
+Q1. (a) and (c) are unbalanced. (a)'s root with key = 8 is left-heavy,
+while (c) node with key = 9 is right-heavy.
+
+Q2. The resultant tree is unbalanced. The node with key = 10 is right-heavy.
+
+Q3. I implemented all four possible un-balanced cases, i.e. Right Right, Left Left, Right Left, and Left Right,
+in my insert function, which now calls and relies on new functions rebalance(), setBalanceFactor(),
+rotate[Left, Right, LeftRight, RightLeft](), and getSubtreeHeight().
+
+The specific cause of the tree in Task 1 becoming unbalanced was due to a Right Left case involving Node id = 10,
+which was solved by doing first a Right rotation on the parent's rightChild, and then a Left rotation on the parent itself.
+This operation is encapsulated in the function rotateLeftRight. The naming scheme seems a bit confusing here, but it is sound:
+the LeftRight rotation is the 'inversion' of the Right Left problem which it solves.
+
+The user interface for my avl_tree is exactly the same as the one for my BST, which promotes code reuse. I recommend however
+using the print2D function to check out the nitty gritty of the rotation process.
+
+- Running avl_tree.cpp in environment
+avl_tree is written without features specific to any contemporary C++ version.
+Bash commands:
+- g++ avl_tree.cpp -o avl_tree for compilation,
+- ./avl_tree for running.
+
+------------
+About Task 3:
+This task would not be possible if not for the work of amc176 (https://github.com/amc176/cpp-threadpool/tree/master/Threadpool).
+
+I wrote a class concurrentTraverse with functions which does a multi-threaded traversal of a BST (or any tree for that matter),
+either printing out the identities of all of its elements in preorder fashion, or printing out the age of one of its elements
+with id corresponding to given.
+
+This program runs through a simple implementation of threadPool, with automated task management and logic:
+1) Enter a node, store its ID and the path you took to reach this node.
+2) Check if the current node being considered is a leaf. If so, return (base case).
+3) If possible, start a new thread going right.
+4) If possible, continue going left (without starting a new thread).
+back to 1).
+
+The sorting mechanism is further talked about in code comments. But in short, it relies on each result storing the path
+it took to get to the node on which it is based. These paths, in string form, are then compared to sort all results in preorder fashion.
+
+- Running concurrent_search_improved.cpp in environment
+concurrent_search_improved is written without features specific to any contemporary C++ version.
+
+Bash commands:
+- g++ "concurrent_search_improved.cpp" -pthread -o "concurrent_search_improved" for compilation,
+- ./concurrrent_search_improved for running.
+
+- How to use Concurrent Search Improved
+1) Create and initialise a BST object: "BinarySearchTree tree;"
+2) Initialize tree as per instructions in Task 1.
+3) Initialize a ConcurrentTraverse object: "ConcurrentTraverse concurrentTraverse(&tree);", passing the tree you just created's memory loc.
+4) To print out the ids of all the nodes in tree in multithreaded, pre-order fashion, 
+call the ConcurrentTraverse.start function. "concurrentTraverse.start();"
+5) To print out the age of a chosen patient with a given id through a multithreaded, preorder search, 
+call the ConcurrentTraverse.startSearch function. "concurrentTraverse.startSearch(6);"

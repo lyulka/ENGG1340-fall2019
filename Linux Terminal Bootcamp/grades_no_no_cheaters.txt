@@ -1,0 +1,5 @@
+Class	Leia	Kirk	Spock	Arthur	Ford	Kaylee
+Maths	95	40	100	30	80	85
+English	99	90	100	90	20	60
+Biology	85	50	100	10	20	60
+P.E	80	100	100	20	30	50
